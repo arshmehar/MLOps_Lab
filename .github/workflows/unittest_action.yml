@@ -26,7 +26,7 @@ jobs:
 
     - name: Notify on success
       if: success()
-      run: echo "Unit tests passed successfully"
+      run: echo "Unit tests passed successfuly"
 
     - name: Notify on failure
       if: failure()
