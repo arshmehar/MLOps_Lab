@@ -1,13 +1,10 @@
-
-name: Testing with Pytest
-run-name: Pytest
+name: LeetCode Tests (pytest)
+run-name: Pytest run by ${{ github.actor }}
 on:
   push:
     branches:
       - main
-      - 'releases/**' # Filters to run only when a push to a branch that matches the branches filter occurs
-    branches-ignore:
-     - dev
+      - 'releases/**'
 
   label:
     types:
@@ -22,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v6
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v6
       with:
-        python-version: 3.8
+        python-version: "3.12"
 
     - name: Install dependencies
       run: pip install -r requirements.txt
@@ -38,10 +35,11 @@ jobs:
 
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
-        name: test-results
+        name: test-results-${{ github.run_number }}
         path: pytest-report.xml
+        retention-days: 7
 
     - name: Notify on success
       if: success()
