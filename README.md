@@ -1,8 +1,8 @@
 # MLOps Lab: GitHub Actions with LeetCode Tests
 
-This repo uses GitHub Actions to automatically test Python solutions to LeetCode problems. 
-`src/leetcode.py` contains Two Sum (hash map, LC #1), a two-pointer helper that finds all unique pairs in a sorted list,and Three Sum (LC #15),
-which builds on that helper and supports an optional custom target.
-The `test/` folder has both pytest and unittest suites covering normal cases, duplicates, empty results, and invalid input.
-Two workflows run these tests on every push to `main`: one with pytest, which saves a numbered test report artifact, and one with unittest.
+This repo uses GitHub Actions to automatically test Python solutions to LeetCode problems.\
+`src/leetcode.py` contains Two Sum (hash map, LC #1), a two-pointer helper that finds all unique pairs in a sorted list,and Three Sum (LC #15),\
+which builds on that helper and supports an optional custom target.\
+The `test/` folder has both pytest and unittest suites covering normal cases, duplicates, empty results, and invalid input.\
+Two workflows run these tests on every push to `main`: one with pytest, which saves a numbered test report artifact, and one with unittest.\
 Each run is labeled with the user who triggered it.
